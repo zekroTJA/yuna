@@ -15,7 +15,8 @@ $twitter = TwitterClient.new $config.get_twitter_creds
 
 def get_time
     _t = Time.new
-    return "#{_t.month}/#{_t.day}/#{_t.year} - #{_t.hour}:#{_t.min}:#{_t.sec}"
+    pad = lambda { |x| if x > 9 then x else "0" + x.to_s end }
+    return "#{pad.call _t.month}/#{pad.call _t.day}/#{_t.year} - #{pad.call _t.hour}:#{pad.call _t.min}:#{pad.call _t.sec}"
 end
 
 
@@ -24,8 +25,8 @@ def trigger
     unless info.nil?
         dl_file = info['filename']
         tweet_cont = info['author'].nil? || info['title'].nil? ? 
-                    info['origin'] : 
-                    "'#{info['title']}' by #{info['author']}\n\n(#{info['origin']})"
+                     info['origin'] : 
+                     "'#{info['title']}' by #{info['author']}\n\n(#{info['origin']})"
         unless dl_file.nil?
             if $twitter.send tweet_cont, dl_file
                 puts "[#{get_time}] Send image #{info['url']} (#{info['origin']})]"
