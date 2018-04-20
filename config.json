@@ -1,6 +1,14 @@
 {
     "urllistfile": "./BOTLIST",
     "imgsavedir": "./images",
+    "timer": {
+        "interval": 1,
+        "times": [
+            [11, 18],
+            [18, 19],
+            [18, 20]
+        ]
+    },
     "twitter": {
         "consumer_key": "",
         "consumer_secret": "",

@@ -15,8 +15,10 @@ class TwitterClient
             else
                 @client.update_with_media content, File.new(image)
             end
+            return true
         rescue Exception => e
             puts "[ERROR] in 'TwitterClient#send': #{e}"
+            return false
         end
     end
 

@@ -1,9 +1,6 @@
 require 'json'
 
 class Config 
-    
-    @path
-    @config
 
     def initialize (path)
         @path = path

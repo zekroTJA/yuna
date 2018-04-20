@@ -10,9 +10,6 @@ require 'whenever'
 
 class DavidGetter 
 
-    @list_file
-    @img_path
-
     def initialize (list_file, img_path)
         @list_file = list_file
         @img_path = img_path
